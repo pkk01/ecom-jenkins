@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { FaUserCircle } from "react-icons/fa";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { logout } from "../services/authService";
-import { FaUserCircle } from "react-icons/fa";
 import "./style.css";
 
 const HomePage = () => {
   const navigate = useNavigate();
-  const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("token"));
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    !!localStorage.getItem("token")
+  );
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   useEffect(() => {
@@ -33,7 +35,7 @@ const HomePage = () => {
     <div className="container">
       {/* Header */}
       <div className="header">
-        <h1>E-Commerce</h1>
+        <h1>E-Commerce Electronics</h1>
         <div className="header-right">
           {isAuthenticated ? (
             <div className="profile-menu">
@@ -44,16 +46,24 @@ const HomePage = () => {
               />
               {dropdownOpen && (
                 <div className="dropdown">
-                  <Link to="/cart" onClick={() => setDropdownOpen(false)}>Cart</Link>
-                  <Link to="/orders" onClick={() => setDropdownOpen(false)}>Orders</Link>
+                  <Link to="/cart" onClick={() => setDropdownOpen(false)}>
+                    Cart
+                  </Link>
+                  <Link to="/orders" onClick={() => setDropdownOpen(false)}>
+                    Orders
+                  </Link>
                   <button onClick={handleLogout}>Logout</button>
                 </div>
               )}
             </div>
           ) : (
             <>
-              <Link to="/login"><button>Login</button></Link>
-              <Link to="/signup"><button>Sign Up</button></Link>
+              <Link to="/login">
+                <button>Login</button>
+              </Link>
+              <Link to="/signup">
+                <button>Sign Up</button>
+              </Link>
             </>
           )}
         </div>
@@ -75,7 +85,9 @@ const HomePage = () => {
             <Link to={isAuthenticated ? "/laptops" : "/login"}>Laptops</Link>
           </li>
           <li>
-            <Link to={isAuthenticated ? "/pendrives" : "/login"}>Pendrives</Link>
+            <Link to={isAuthenticated ? "/pendrives" : "/login"}>
+              Pendrives
+            </Link>
           </li>
         </ul>
       </div>
