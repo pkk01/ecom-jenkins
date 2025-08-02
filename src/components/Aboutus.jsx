@@ -4,7 +4,7 @@ import "../components/style.css";
 const AboutUs = () => {
   return (
     <div className="about-container">
-      <h2>Electronic Store</h2>
+      <h2>Pratham Kumar</h2>
       <p>
         Welcome to our E-Commerce platform, your one-stop shop for the latest
         and greatest in electronics! We specialize in high-quality products,
